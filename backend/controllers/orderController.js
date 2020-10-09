@@ -38,7 +38,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
 // @desc     Get order by ID
 // @route    GET /api/orders/:id
 // @access   Private
-const updateOrderToPaid = asyncHandler(async (req, res) => {
+const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
     'user',
     'name email'
@@ -54,7 +54,7 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
 // @desc     Update order to paid
 // @route    PUT /api/orders/:id/pay
 // @access   Private
-const getOrderById = asyncHandler(async (req, res) => {
+const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
     order.isPaid = true;
